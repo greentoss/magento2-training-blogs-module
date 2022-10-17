@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Shkil\Blogposts\Api\Data\PostInterface" type="Shkil\Blogposts\Model\Post" />
+    <preference for="Shkil\Blogposts\Api\Data\PostSearchResultInterface" type="Shkil\Blogposts\Model\PostSearchResult" />
+    <preference for="Shkil\Blogposts\Api\PostRepositoryInterface" type="Shkil\Blogposts\Model\PostRepository" />
+</config>
