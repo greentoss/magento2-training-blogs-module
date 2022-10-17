@@ -14,6 +14,7 @@ use Shkil\Blogposts\Api\Data\PostSearchResultInterface;
 use Shkil\Blogposts\Api\Data\PostSearchResultInterfaceFactory;
 use Shkil\Blogposts\Api\PostRepositoryInterface;
 use Shkil\Blogposts\Model\ResourceModel\Post\CollectionFactory;
+use Shkil\Blogposts\Model\ResourceModel\Post;
 
 
 class PostRepository implements PostRepositoryInterface

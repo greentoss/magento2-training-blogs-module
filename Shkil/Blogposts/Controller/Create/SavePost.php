@@ -2,9 +2,8 @@
 
 namespace Shkil\Blogposts\Controller\Create;
 
-use Magento\Backend\App\Action;
-use Magento\Backend\App\Action\Context;
-use Magento\Framework\App\Action\HttpPostActionInterface;
+use Magento\Framework\App\Action\Action;
+use Magento\Framework\App\Action\Context;
 use Shkil\Blogposts\Api\PostRepositoryInterface;
 use Shkil\Blogposts\Model\PostFactory;
 
@@ -26,7 +25,6 @@ class SavePost extends Action
 
     public function execute()
     {
-        echo "123"; die();
         try {
             $post = $this->postFactory->create();
 
@@ -35,7 +33,6 @@ class SavePost extends Action
             $post->setBody($this->getRequest()->getParam('body'));
 
             $this->postRepository->save($post);
-//            echo "123"; die();
             $resultRedirect = $this->resultRedirectFactory->create();
 
             $this->messageManager->addSuccessMessage(__('You created a new post!'));
