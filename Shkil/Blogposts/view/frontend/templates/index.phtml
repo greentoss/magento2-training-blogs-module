@@ -1,1 +1,21 @@
-<h2>Welcome to Blogs.com</h2>
+<h2>Welcome to Blogs</h2>
+
+<?php $postViewModel = $block->getData('view_model'); ?>
+<?php $posts = $postViewModel ? $postViewModel -> getList() : []; ?>
+
+<?php if (empty($posts)) : ?>
+    <div><?= __('No available posts'); ?></div>
+<?php else : ?>
+    <?php foreach ($posts as $post) : ?>
+        <div>
+            <a href="<?= $block->getUrl('blog/post/view/post/1' . $post->getId()); ?>">
+                <?= $post->getTitle(); ?>
+            </a>
+        </div>
+        <div>
+            <h3><?= $post->getTitle(); ?></h3>
+            <p><?= $post->getBody(); ?></p>
+            <span><?= $post->getCreatedAt(); ?></span>
+        </div>
+    <?php endforeach;?>
+<?php endif; ?>

@@ -5,17 +5,15 @@ namespace Shkil\Blogposts\Model;
 use Exception;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
-use Magento\Framework\Exception\LocalizedException;
-use Shkil\Blogposts\Api\Data\PostInterface;
-
 use Magento\Framework\Exception\CouldNotDeleteException;
+use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Shkil\Blogposts\Api\Data\PostInterface;
 use Shkil\Blogposts\Api\Data\PostSearchResultInterface;
 use Shkil\Blogposts\Api\Data\PostSearchResultInterfaceFactory;
 use Shkil\Blogposts\Api\PostRepositoryInterface;
-use Shkil\Blogposts\Model\ResourceModel\Post\CollectionFactory;
 use Shkil\Blogposts\Model\ResourceModel\Post;
-
+use Shkil\Blogposts\Model\ResourceModel\Post\CollectionFactory;
 
 class PostRepository implements PostRepositoryInterface
 {
@@ -38,6 +36,7 @@ class PostRepository implements PostRepositoryInterface
      * @var PostSearchResultInterfaceFactory
      */
     private $searchResultFactory;
+
     /**
      * @var CollectionProcessorInterface
      */
@@ -49,8 +48,7 @@ class PostRepository implements PostRepositoryInterface
         CollectionFactory                $postCollectionFactory,
         PostSearchResultInterfaceFactory $postSearchResultInterfaceFactory,
         CollectionProcessorInterface     $collectionProcessor
-    )
-    {
+    ) {
         $this->postFactory = $postFactory;
         $this->postResource = $postResource;
         $this->postCollectionFactory = $postCollectionFactory;
@@ -78,7 +76,7 @@ class PostRepository implements PostRepositoryInterface
      * @return PostInterface
      * @throws LocalizedException|Exception
      */
-    public function save(PostInterface $post)
+    public function save($post)
     {
         $this->postResource->save($post);
         return $post;
@@ -89,7 +87,7 @@ class PostRepository implements PostRepositoryInterface
      * @return bool true on success
      * @throws CouldNotDeleteException
      */
-    public function delete(PostInterface $post)
+    public function delete($post)
     {
         try {
             $this->postResource->delete($post);
@@ -100,22 +98,21 @@ class PostRepository implements PostRepositoryInterface
         }
 
         return true;
-
     }
 
     /**
      * @param SearchCriteriaInterface $searchCriteria
      * @return PostSearchResultInterface
-     * @throws LocalizedException
      */
-    public function getList(SearchCriteriaInterface $searchCriteria)
+    public function getList($searchCriteria)
     {
         $collection = $this->postCollectionFactory->create();
         $this->collectionProcessor->process($searchCriteria, $collection);
-        $searchResults = $this->searchResultFactory->create();
 
+        $searchResults = $this->searchResultFactory->create();
         $searchResults->setSearchCriteria($searchCriteria);
         $searchResults->setItems($collection->getItems());
+        $searchResults->setTotalCount($collection->getSize());
 
         return $searchResults;
     }

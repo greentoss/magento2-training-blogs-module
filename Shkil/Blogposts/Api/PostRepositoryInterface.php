@@ -2,33 +2,38 @@
 
 namespace Shkil\Blogposts\Api;
 
+use Magento\Framework\Api\SearchCriteriaInterface;
+use Magento\Framework\Exception\CouldNotSaveException;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\Exception\NoSuchEntityException;
+use Shkil\Blogposts\Api\Data\PostInterface;
+use Shkil\Blogposts\Api\Data\PostSearchResultInterface;
+
 interface PostRepositoryInterface
 {
+
     /**
      * @param int $id
-     * @return \Shkil\Blogposts\Api\Data\PostInterface
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @return PostInterface
+     * @throws NoSuchEntityException
      */
     public function getById($id);
 
     /**
-     * @param \Shkil\Blogposts\Api\Data\PostInterface $post
-     * @return \Shkil\Blogposts\Api\Data\PostInterface
-     * @throws \Magento\Framework\Exception\CouldNotSaveException
+     * @param PostInterface $post
+     * @return PostInterface
      */
-    public function save(\Shkil\Blogposts\Api\Data\PostInterface $post);
+    public function save($post);
 
     /**
-     * @param \Shkil\Blogposts\Api\Data\PostInterface $post
-     * @return bool true on success
-     * @throws \Magento\Framework\Exception\CouldNotDeleteException
+     * @param PostInterface $post
+     * @return void
      */
-    public function delete(\Shkil\Blogposts\Api\Data\PostInterface $post);
+    public function delete($post);
 
     /**
-     * @param \Magento\Framework\Api\SearchCriteriaInterface $searchCriteria
-     * @return \Shkil\Blogposts\Api\Data\PostInterface
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @param SearchCriteriaInterface $searchCriteria
+     * @return PostSearchResultInterface
      */
-    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria);
+    public function getList($searchCriteria);
 }

@@ -1,10 +1,6 @@
 <h1>Articles creation page</h1>
 
 <form action="<?php echo $block->getUrl('blog/create/savepost') ?>" method="post">
-<!--    <input name="author" type="text">-->
-<!--    <input name="title" type="text">-->
-<!--    <input name="body" type="text">-->
-<!--    <input name="created_at" type="date">-->
     <fieldset class="fieldset">
         <legend class="legend"><span><?= $block->escapeHtmlAttr(__('Articles Fill Details')) ?></span></legend>
         <fieldset class="fieldset row">
@@ -56,5 +52,4 @@
                     escapeHtmlAttr(__('Publish your article')) ?></span></button>
         </div>
     </div>
-<!--    <input type="submit" value="Publish your article">-->
 </form>
