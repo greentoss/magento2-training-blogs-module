@@ -1,0 +1,20 @@
+<?php
+
+/** @var Magento\Framework\View\Element\Template $block */
+/** @var Shkil\Blogposts\ViewModel\BlogViewModel $postViewModel */
+/** @var Magento\Framework\Escaper $escaper */
+
+$postViewModel = $block->getData('view_model');
+$post = $postViewModel->getPost();
+?>
+
+<?php if (!$post) : ?>
+    <div><?= __('No found posts'); ?></div>
+<?php else : ?>
+    <div>
+        <h2><?= $escaper->escapeHtml($post->getTitle()); ?></h2>
+        <div><span><?= $escaper->escapeHtml($post->getAuthor()) ?></span></div>
+        <p><?= $escaper->escapeHtml($post->getBody()); ?></p>
+        <span><?= $escaper->escapeHtml($post->getCreatedAt()); ?></span>
+    </div>
+<?php endif; ?>
