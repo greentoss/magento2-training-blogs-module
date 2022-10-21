@@ -1,3 +1,6 @@
+<?php
+/** @var Magento\Framework\View\Element\Template $block */
+?>
 <h1>Articles creation page</h1>
 
 <form action="<?php echo $block->getUrl('blog/create/savepost') ?>" method="post">
@@ -34,13 +37,6 @@
                                   data-validate="{required:true}"
                         >
                         </textarea>
-                    </div>
-                </div>
-                <div class="field name ">
-                    <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Date of creation')) ?></span></label>
-                    <div class="control">
-                        <input name="created_at" id="created_at" title="Date of creation" value="" class="input-text"
-                               type="date" data-validate="{required:true}">
                     </div>
                 </div>
             </div>

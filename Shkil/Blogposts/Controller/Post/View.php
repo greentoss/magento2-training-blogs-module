@@ -7,10 +7,7 @@ use Magento\Framework\View\Result\PageFactory;
 
 class View implements ActionInterface
 {
-    /**
-     * @var PageFactory
-     */
-    private $pageFactory;
+    private PageFactory $pageFactory;
 
     public function __construct(
         PageFactory $pageFactory

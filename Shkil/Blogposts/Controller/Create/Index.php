@@ -2,21 +2,22 @@
 
 namespace Shkil\Blogposts\Controller\Create;
 
-use Magento\Framework\App\Action\Action;
-use Magento\Framework\App\Action\Context;
+//use Magento\Framework\App\Action\Action;
+//use Magento\Framework\App\Action\Context;
+use Magento\Framework\App\ActionInterface;
 use Magento\Framework\View\Result\PageFactory;
 
-class Index extends Action
+class Index implements ActionInterface
 {
-    protected $_pageFactory;
+    protected PageFactory $_pageFactory;
 
     public function __construct(
-        Context $context,
+//        Context $context,
         PageFactory $pageFactory
     )
     {
         $this->_pageFactory = $pageFactory;
-        return parent::__construct($context);
+//        return parent::__construct($context);
     }
 
     public function execute()
