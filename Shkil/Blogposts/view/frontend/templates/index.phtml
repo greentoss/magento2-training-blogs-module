@@ -8,7 +8,7 @@
 <?php else : ?>
     <?php foreach ($posts as $post) : ?>
         <div>
-            <a href="<?= $block->getUrl('blog/post/view/post/1' . $post->getId()); ?>">
+            <a href="<?= $block->getUrl('blog/post/view/id/' . $post->getId()); ?>">
                 <?= $post->getTitle(); ?>
             </a>
         </div>

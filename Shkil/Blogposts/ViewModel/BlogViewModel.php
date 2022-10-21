@@ -67,7 +67,6 @@ class BlogViewModel implements ArgumentInterface
     public function getPost()
     {
         $id = $this->request->getParam('id');
-//        var_dump($id);
 
         try {
             $post = $this->postRepository->getById($id);
