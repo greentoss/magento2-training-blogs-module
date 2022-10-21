@@ -3,4 +3,8 @@
     <preference for="Shkil\Blogposts\Api\Data\PostInterface" type="Shkil\Blogposts\Model\Post" />
     <preference for="Shkil\Blogposts\Api\Data\PostSearchResultInterface" type="Shkil\Blogposts\Model\PostSearchResult" />
     <preference for="Shkil\Blogposts\Api\PostRepositoryInterface" type="Shkil\Blogposts\Model\PostRepository" />
+
+    <type name="Shkil\Blogposts\ViewModel\BlogViewModel">
+        <plugin name="posts-change-date-format" type="Shkil\Blogposts\Plugin\PostsChangeDateFormat"/>
+    </type>
 </config>
