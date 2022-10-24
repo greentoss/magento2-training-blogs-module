@@ -4,13 +4,11 @@ namespace Shkil\Blogposts\Controller\Create;
 
 use Exception;
 
-
-use Laminas\EventManager\EventManagerInterface;
-use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\ActionInterface;
+use Magento\Framework\App\Request\Http;
 use Magento\Framework\Controller\Result\RedirectFactory;
-use Magento\Framework\Event\ManagerInterface;
-use Magento\Framework\App\RequestInterface;
+use Magento\Framework\Event\ManagerInterface as EventManagerInterface;
+use Magento\Framework\Message\ManagerInterface as MessageManagerInterface;
 use Shkil\Blogposts\Api\PostRepositoryInterface;
 use Shkil\Blogposts\Model\PostFactory;
 
@@ -19,16 +17,23 @@ class SavePost implements ActionInterface
     private PostFactory $postFactory;
     private PostRepositoryInterface $postRepository;
     private EventManagerInterface $eventManager;
-    private RequestInterface $request;
-    private ManagerInterface $messageManager;
+    private MessageManagerInterface $messageManager;
     private RedirectFactory $resultRedirectFactory;
+    private Http $request;
 
+    /**
+     * @param PostFactory $postFactory
+     * @param PostRepositoryInterface $postRepository
+     * @param Http $request
+     * @param MessageManagerInterface $messageManager
+     * @param RedirectFactory $resultRedirectFactory
+     * @param EventManagerInterface $eventManager
+     */
     public function __construct(
-        Context $context,
         PostFactory $postFactory,
         PostRepositoryInterface $postRepository,
-        RequestInterface $request,
-        ManagerInterface $messageManager,
+        Http $request,
+        MessageManagerInterface $messageManager,
         RedirectFactory $resultRedirectFactory,
         EventManagerInterface $eventManager
     )
@@ -39,7 +44,6 @@ class SavePost implements ActionInterface
         $this->messageManager = $messageManager;
         $this->resultRedirectFactory = $resultRedirectFactory;
         $this->eventManager = $eventManager;
-//        return parent::__construct($context);
     }
 
     public function execute()
@@ -47,9 +51,9 @@ class SavePost implements ActionInterface
         try {
             $post = $this->postFactory->create();
 
-            $post->setAuthor($this->getRequest()->getParam('author'));
-            $post->setTitle($this->getRequest()->getParam('title'));
-            $post->setBody($this->getRequest()->getParam('body'));
+            $post->setAuthor($this->request->getParam('author'));
+            $post->setTitle($this->request->getParam('title'));
+            $post->setBody($this->request->getParam('body'));
 
             $this->eventManager->dispatch('blogpost_save_before', ['post' => $post]);
             $this->postRepository->save($post);

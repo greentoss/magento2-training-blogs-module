@@ -11,7 +11,7 @@ interface PostInterface extends ExtensibleDataInterface
     const BODY = 'body';
     const TITLE = 'title';
     const CREATED_AT = 'created_at';
-	
+
     /**
      * @return integer
      */
