@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Shkil::Blog" title="Blog" module="Shkil_Blogposts" sortOrder="10" resource="Magento_Backend::admin"/>
+        <add id="Shkil::Blog_List" title="Posts List" module="Shkil_Blogposts" sortOrder="10" resource="Magento_Backend::admin" parent="Shkil::Blog" action="blog/post/index"/>
+    </menu>
+</config>

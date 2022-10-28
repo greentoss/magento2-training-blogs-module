@@ -7,4 +7,19 @@
     <type name="Shkil\Blogposts\ViewModel\BlogViewModel">
         <plugin name="posts-change-date-format" type="Shkil\Blogposts\Plugin\PostsChangeDateFormat"/>
     </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="blog_post_listing_data_source" xsi:type="string">BlogPostCollection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="BlogPostCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">shkil_blog</argument>
+            <argument name="resourceModel" xsi:type="string">Shkil\Blogposts\Model\ResourceModel\Post</argument>
+        </arguments>
+    </virtualType>
 </config>

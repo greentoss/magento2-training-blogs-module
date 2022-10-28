@@ -52,7 +52,7 @@ class AddCustomerAttributes implements DataPatchInterface
                 'required' => true,
                 'backend' => '',
                 'sort_order' => '30',
-                'global' => ScopedAtributeInterface::SCOPE_GLOBAL,
+                'global' => ScopedAttributeInterface::SCOPE_GLOBAL,
                 'default' => '0',
                 'visible' => true,
                 'user_defined' => true,
