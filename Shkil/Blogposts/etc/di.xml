@@ -22,4 +22,12 @@
             <argument name="resourceModel" xsi:type="string">Shkil\Blogposts\Model\ResourceModel\Post</argument>
         </arguments>
     </virtualType>
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="shkil_blog_count" xsi:type="object">Shkil\Blogposts\Console\Command\PostCount</item>
+            </argument>
+        </arguments>
+    </type>
 </config>
