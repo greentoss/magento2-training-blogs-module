@@ -18,3 +18,15 @@
         </div>
     <?php endforeach;?>
 <?php endif; ?>
+
+<button id="click_me"><?= __('Click Me'); ?></button>
+
+<script type="text/x-magento-init">
+    {
+        "*" : {
+            "Shkil_Blogposts/js/clickme" : {
+                "ajaxUrl" : "<?php echo $block->getUrl('blog/ajax/clickme'); ?>"
+            }
+        }
+    }
+</script>
