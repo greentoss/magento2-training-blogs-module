@@ -30,3 +30,22 @@
         }
     }
 </script>
+
+
+<div id="ko-example" data-bind="scope: 'knockout-example'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "knockout-example": {
+                        "component": "Shkil_Blogposts/js/clock",
+                        "template" : "Shkil_Blogposts/demo-clock"
+                    }
+                }
+            }
+        }
+    }
+</script>
