@@ -15,6 +15,6 @@ $_menuHtml = $block->getHtml('level-top', 'submenu', $columnsLimit)
     <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
         <?= /* @noEscape */ $_menuHtml?>
         <?= $block->getChildHtml() ?>
-        <span class="blog"><a href="<?= $block->getUrl('blog'); ?>"><?= __('Read our blog') ?></a></span>
+        <span class="blog theme_button"><a href="<?= $block->getUrl('blog'); ?>"><?= __('Read our blog') ?></a></span>
     </ul>
 </nav>
