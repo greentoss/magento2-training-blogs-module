@@ -1,7 +1,7 @@
-define(['jquery'], function ($) {
-    return function (config, element) {
-        $('#click_me').on('click', function (e) {
-            let self = this;
+define(['jquery'], ($) => {
+    return (config, element) => {
+        $('#click_me').on('click', (e) => {
+            // let self = this;
             e.preventDefault();
 
             $.ajax({
@@ -13,11 +13,12 @@ define(['jquery'], function ($) {
                 },
                 dataType : 'json',
                 cache : false,
-                beforeSend : function () {
+                beforeSend : () => {
                     $('body').trigger('processStart');
                 },
-                success : function (res) {
+                success : (res) => {
                     console.log('success', res.message);
+                    // alert(`success: ${res.message}`);
                     $('body').trigger('processStop');
                 }
             })
